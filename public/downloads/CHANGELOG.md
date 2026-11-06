@@ -1,9 +1,11 @@
-# Float 1.0.0
+# Float Setup 1.0.1
 
-Initial stable release.
+This maintenance release updates the Windows installer.
 
-- Portable Windows app and per-user setup program.
-- Select a visible destination window and send Unicode text at a controlled pace.
-- Stop typing if focus changes or the destination closes.
-- Session-only history; clipboard entries are added only on request.
-- Unsigned Windows executables.
+- Choose the installation folder during setup.
+- Check folder write access and explain permission problems before copying files.
+- Offer the suggested per-user folder when a selected folder is inaccessible.
+- Verify the installed app target before saving Start menu and desktop shortcuts.
+
+Float itself remains version 1.0.0.
+

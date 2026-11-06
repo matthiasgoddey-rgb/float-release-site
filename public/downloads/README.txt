@@ -1,46 +1,35 @@
-FLOAT 1.0.0 — WINDOWS
-A calmer way to move text.
-
-Float sends text you prepare into a visible application window you choose. It supports Unicode input, controlled typing pace, and a per-session history.
-
-IN THIS DOWNLOAD
-
-Float-Setup.exe       Per-user installer
-Float.exe             Portable app
-Float-logo.svg        Scalable logo
-README.txt            This guide
-CHANGELOG.md          Release history
-SHA256SUMS.txt        SHA-256 hashes for the packaged files
-
-REQUIREMENTS
-
-A Windows desktop with Windows PowerShell and .NET Framework 4.x available. The app supports 32-bit and 64-bit Windows.
+FLOAT — PORTABLE WINDOWS APP
 
 INSTALL
 
-1. Run Float-Setup.exe.
-2. Choose whether to add a desktop shortcut.
-3. Float installs for your Windows account under LocalAppData and adds a Start menu shortcut. Administrator access is not required.
-4. Uninstall from Windows Settings > Apps, or run the installed Float-Setup.exe and choose Uninstall.
+Run Float-Setup.exe to choose where Float is installed. The suggested folder is per-user and usually needs no administrator access. The installer has a moving sailboat, clear progress feedback, a Start menu shortcut, and an optional desktop shortcut. Uninstall Float from Windows Settings > Apps.
 
-PORTABLE USE
+TRUST NOTICE
 
-Run Float.exe directly. It does not need an installer.
+Float-Setup.exe and Float.exe are not digitally signed. Microsoft Defender SmartScreen may show an unrecognized-app warning for a new or uncommon download. This warning is about publisher and file reputation; it is not, by itself, a malware finding. Do not run a copy unless you trust its source. A SHA-256 checksum can confirm the download matches the published file, but it does not prove the file is safe.
 
-USING FLOAT
+PORTABLE
 
-Choose a visible application window in the Write tab. The list refreshes when the tab opens; use Refresh list to update it manually. Nothing is selected automatically. Enter or paste your text, select a typing pace, then start the countdown. Click inside the destination text area before the countdown ends.
+1. Extract the entire Float-Portable folder.
+2. Double-click Float.exe.
 
-Float stops if the destination closes or focus moves to another app. You can also stop typing from Float. The destination app must accept Unicode keyboard input. Use your Windows keyboard layout or IME for the text you enter.
+Float.exe is a small, windowless launcher with the Float PowerShell app embedded inside it. It uses Windows PowerShell and .NET Framework included with Windows; nothing needs to be installed. The app script is unpacked to a temporary folder only while Float is open, then removed when you close it.
 
-The Settings tab controls the editor and history preview font. These font settings do not change formatting in the destination app. The History tab can hold up to 50 recent items for the current session.
+The app has Write, Settings, and History tabs. Choose a visible, open app window in Write; its list refreshes whenever you open it, excludes hidden windows and owned dialogs, and can also be updated with Refresh list. Nothing is selected automatically. Click inside the destination's text area before the countdown ends. Float stops if the destination closes or focus moves to another app.
 
-PRIVACY
+History shows recent text Float has typed and clipboard text you manually add. Select an item to preview its full text, reuse it in the editor, or copy it.
+The interface scales for Windows display DPI and readjusts when resized; Settings can scroll on compact screens. Its sailboat mark floats smoothly without blinking.
 
-Float does not monitor the clipboard. Clipboard text enters History only when you choose Add clipboard. Typed text and items you add are held in memory for the current session and cleared when Float closes. The portable launcher extracts the embedded app script to a temporary folder while Float is open and removes that folder when it exits.
+Float sends Unicode keyboard input, including Chinese, Russian, and other scripts; it does not need language packs or plugins. Enter or paste text using your Windows keyboard layout or IME (for Chinese, use a Windows Chinese IME). The destination app must support Unicode. Choose an installed editor font, size, bold, and italic in Settings. These affect the editor and history preview only, not formatting in the destination app.
 
-TRUST
+Up to 50 recent text items are kept in memory for the current session only. Clipboard contents are never monitored automatically; they are added only when you choose Add clipboard. Recent text and clipboard history are cleared when Float closes.
 
-The supplied executables are not digitally signed. Windows may show a trust or reputation warning when they are downloaded.
+FloatLauncher.cs, Float.ps1, FloatSetup.cs, and both build scripts are included for rebuilding or customizing the app. To rebuild on Windows with .NET Framework 4.x, run:
+
+    powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Build Float.exe.ps1"
+    powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Build Float Setup.exe.ps1"
+
+Float-logo.svg is the scalable Float logo. The executable also uses its icon.
 
 Made with care by SMARTSERVE.
+
