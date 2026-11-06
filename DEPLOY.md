@@ -1,6 +1,6 @@
 # Float release site — Cloudflare Pages
 
-The static site is in `public/`. It includes the Float 1.0.0 Windows download, guide, changelog, checksum, and logo.
+The static site is in the `public/` directory. It includes the Float 1.0.1 Windows download, user guide, changelog, archive checksum, logo, and community links. The installer is version 1.0.1 and the app is version 1.0.0.
 
 ## Recommended: connect Cloudflare Pages to GitHub
 
@@ -22,16 +22,16 @@ Choose Git integration when creating the Pages project: Cloudflare does not let 
 
 ## Direct Upload package
 
-`../Float-Release-Website-Cloudflare-Pages.zip` contains the same public files at the ZIP root. It can be uploaded through Cloudflare Pages Direct Upload if manual deployment is preferred. A Direct Upload project cannot later be converted to Git integration, so use this only if you want a separate manually deployed project.
+For a manual Pages deployment, create a ZIP containing the contents of `public/` at the archive root. A Direct Upload project cannot later be converted to Git integration, so use this only if you want a separate manually deployed project.
 
 ## Files
 
 - `README.md` — repository overview.
-- `public/index.html` — release landing page.
+- `public/index.html` — release landing page and community links.
 - `public/styles.css` — responsive styling.
 - `public/assets/Float-logo.svg` — supplied Float logo.
-- `public/downloads/Float-Windows-v1.0.0.zip` — end-user installer and portable app package.
-- `public/downloads/Float-Windows-v1.0.0.zip.sha256` — archive checksum.
+- `public/downloads/Float-Windows-v1.0.1.zip` — end-user installer and portable app package.
+- `public/downloads/Float-Windows-v1.0.1.zip.sha256` — archive checksum.
 - `public/downloads/README.txt` — installation and privacy guide.
 - `public/downloads/CHANGELOG.md` — release history.
 - `public/_headers` — security and cache headers.
