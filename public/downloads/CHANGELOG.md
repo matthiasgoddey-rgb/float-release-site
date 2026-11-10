@@ -1,11 +1,8 @@
-# Float Setup 1.0.1
+# Floater Typist 1.0.2
 
-This maintenance release updates the Windows installer.
+This maintenance release rebrands Float as Floater Typist.
 
-- Choose the installation folder during setup.
-- Check folder write access and explain permission problems before copying files.
-- Offer the suggested per-user folder when a selected folder is inaccessible.
-- Verify the installed app target before saving Start menu and desktop shortcuts.
-
-Float itself remains version 1.0.0.
-
+- Updates the app window, installer, Windows app listing, shortcuts, accessibility labels, and guide to the new product name.
+- Keeps `Float.exe`, `Float-Setup.exe`, the install location, and the existing uninstall key so v1.0.1 installations can be updated in place.
+- Keeps the same typing workflow and session privacy behavior.
+- The supplied Windows executables remain unsigned.
