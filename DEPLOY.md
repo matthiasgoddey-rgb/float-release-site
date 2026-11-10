@@ -1,37 +1,22 @@
-# Float release site — Cloudflare Pages
+# Floater Typist release site — Cloudflare Pages
 
-The static site is in the `public/` directory. It includes the Float 1.0.1 Windows download, user guide, changelog, archive checksum, logo, and community links. The installer is version 1.0.1 and the app is version 1.0.0.
+The public website and Windows downloads live in `public/` in the `matthiasgoddey-rgb/float-release-site` repository. The existing Cloudflare Pages project is Git integrated and deploys from `main`.
 
-## Recommended: connect Cloudflare Pages to GitHub
+## Current Pages configuration
 
-The release uses GitHub as its source, so use a Git-integrated Pages project for automatic deployments.
+- Production branch: `main`
+- Build command: `exit 0`
+- Build output directory: `public`
+- Existing project name and `pages.dev` address: `float-release-site`
 
-1. Use the GitHub repository `matthiasgoddey-rgb/float-release-site` and commit this folder's `README.md`, `DEPLOY.md`, and `public/` contents to its `main` branch.
-2. In Cloudflare, open **Workers & Pages** and choose **Create application > Pages > Connect to Git**.
-3. Select GitHub and authorize the Cloudflare Workers and Pages app for the `float-release-site` repository.
-4. Select the repository and configure the first build:
-   - Production branch: `main`
-   - Build command: `exit 0`
-   - Build output directory: `public`
-   - Project name: `float-release-site` (if available)
-5. Complete setup and review the resulting `*.pages.dev` address.
+Commits to `main` trigger a production deployment. Preview deployments may be created for other branches and pull requests.
 
-Cloudflare will deploy when changes are pushed to the production branch. Preview deployments are also available for other branches and pull requests.
+## Current release
 
-Choose Git integration when creating the Pages project: Cloudflare does not let a Git-integrated project switch to Direct Upload later, or vice versa.
+Floater Typist 1.0.2 is distributed in `public/downloads/Floater-Typist-Windows-v1.0.2.zip`. The ZIP includes the portable app, per-user installer, user guide, changelog, logo, and SHA-256 checksums. The Windows executables are unsigned.
 
-## Direct Upload package
+The app and installer display Floater Typist while retaining `Float.exe`, `Float-Setup.exe`, and the existing install location for in-place updates.
 
-For a manual Pages deployment, create a ZIP containing the contents of `public/` at the archive root. A Direct Upload project cannot later be converted to Git integration, so use this only if you want a separate manually deployed project.
+## Custom domain
 
-## Files
-
-- `README.md` — repository overview.
-- `public/index.html` — release landing page and community links.
-- `public/styles.css` — responsive styling.
-- `public/assets/Float-logo.svg` — supplied Float logo.
-- `public/downloads/Float-Windows-v1.0.1.zip` — end-user installer and portable app package.
-- `public/downloads/Float-Windows-v1.0.1.zip.sha256` — archive checksum.
-- `public/downloads/README.txt` — installation and privacy guide.
-- `public/downloads/CHANGELOG.md` — release history.
-- `public/_headers` — security and cache headers.
+The site metadata and links are prepared for `https://floatertypist.store/`. To attach the apex domain to the existing Pages project, follow [DOMAIN-SETUP.md](DOMAIN-SETUP.md). The domain becomes active after its Cloudflare DNS setup and Pages custom-domain status are complete.

@@ -1,21 +1,13 @@
-# Float 1.0.1 release site
+# Floater Typist site
 
-This repository contains the public Float release landing page, Windows download, and links to the Float community.
+Static Cloudflare Pages site for `https://floatertypist.store/`.
 
-## Deploy
+- Entry point: `index.html`
+- Styles: `styles.css`
+- Browser interactions: `script.js`
+- Current Windows release: Floater Typist 1.0.2, distributed as `downloads/Floater-Typist-Windows-v1.0.2.zip`
+- Cloudflare Pages project name remains `float-release-site` to keep the existing project and `pages.dev` address.
 
-Cloudflare Pages is configured to build the public/ directory with the command exit 0. See DEPLOY.md for setup details.
+The Windows package changes the app and installer display name while retaining `Float.exe`, `Float-Setup.exe`, the existing install location, and the uninstall registry key so current users can update in place. The executables remain unsigned.
 
-## Release files
-
-- [Float for Windows](public/downloads/Float-Windows-v1.0.1.zip)
-- [SHA-256 checksum](public/downloads/Float-Windows-v1.0.1.zip.sha256)
-- [User guide](public/downloads/README.txt)
-- [Changelog](public/downloads/CHANGELOG.md)
-
-The package contains the per-user installer and portable app. The supplied executables are unsigned. The application keeps session text in memory, does not monitor the clipboard, and clears session history when closed.
-
-## Community
-
-- [GitHub Discussions](https://github.com/matthiasgoddey-rgb/float-release-site/discussions) for questions, ideas, and release conversations.
-- [X](https://x.com/FloatKeyTapper) for release news and project updates.
+See `DEPLOY.md` for the existing Cloudflare Pages settings and release details, and `DOMAIN-SETUP.md` to attach the apex domain to that project.
