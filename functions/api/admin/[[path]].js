@@ -169,6 +169,8 @@ async function handle({ request, env }) {
   if (!sameOrigin(request)) return errorJson("Cross-origin requests are not accepted.", 403);
   const auth = await requireAdmin(request, env);
   if (!auth.ok) return auth.response;
+  const [section] = pathParts(request);
+  if (request.method === "GET" && section === "session") return json({ isAdmin: true });
   const db = database(env);
   if (!db) return json({ error: "The admin service is not configured yet." }, 503);
   const actor = String(auth.claims.email || "").trim().toLowerCase();

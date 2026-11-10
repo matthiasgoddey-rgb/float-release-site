@@ -180,6 +180,10 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", saveForm);
   form.addEventListener("reset", () => { window.setTimeout(() => { form.elements.id.value = ""; }, 0); });
 
+  api("session").then((result) => {
+    if (result.isAdmin === true) localStorage.setItem("floaterTypistAdminAccess", "1");
+  }).catch(() => {});
+
   Promise.all([loadMetrics(), loadReviews(), loadAnnouncements()]).then(() => {
     if (statusNote.textContent.includes("Connecting")) message(statusNote, "Connected. This dashboard only shows aggregate website totals and opted-in reviews.");
   });

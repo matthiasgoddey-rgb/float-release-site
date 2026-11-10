@@ -4,18 +4,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f9fc">
-  <meta name="description" content="Floater Typist is a small Windows app that types prepared text into the window you choose, at a pace you set.">
+  <meta name="description" content="Type prepared text into a chosen Windows app with Floater Typist, a free Windows auto typer. Set the pace, focus the field, and stop at any time.">
   <link rel="canonical" href="https://floatertypist.store/">
-  <meta property="og:title" content="Floater Typist — Text at your pace">
-  <meta property="og:description" content="Prepare your words, choose an open window, and let Floater Typist type at your pace.">
+  <meta property="og:title" content="Free Windows Auto Typer for Prepared Text | Floater Typist">
+  <meta property="og:description" content="A free Windows auto typer for text you prepare. Choose an open window, set the pace, and stay in control.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Floater Typist">
   <meta property="og:url" content="https://floatertypist.store/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@FloatKeyTapper">
-  <meta name="twitter:title" content="Floater Typist — Text at your pace">
-  <meta name="twitter:description" content="A small Windows app for typing prepared text into the window you choose.">
-  <title>Floater Typist — Text at your pace</title>
+  <meta name="twitter:title" content="Free Windows Auto Typer for Prepared Text | Floater Typist">
+  <meta name="twitter:description" content="Type prepared text into a chosen Windows app with Floater Typist. Set the pace and stop whenever you need.">
+  <title>Free Windows Auto Typer for Prepared Text | Floater Typist</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Floater Typist",
+    "url": "https://floatertypist.store/",
+    "operatingSystem": "Windows",
+    "applicationCategory": "UtilitiesApplication",
+    "softwareVersion": "1.0.2",
+    "description": "A free Windows auto typer that types text prepared by the user into a chosen open window at a controlled pace.",
+    "downloadUrl": "https://floatertypist.store/downloads/Floater-Typist-Windows-v1.0.2.zip",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "featureList": ["Choose an open destination window", "Set a typing pace", "Stop typing at any time", "Session text clears when the app closes"]
+  }
+  </script>
   <link rel="icon" href="assets/Float.ico" sizes="any">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
@@ -32,6 +47,8 @@
       </button>
       <nav class="main-nav" id="site-navigation" aria-label="Main navigation">
         <a href="#how">How it works</a>
+        <a href="/guide/">Typing guide</a>
+        <a href="#faq">FAQs</a>
         <a href="#privacy">Privacy</a>
         <a href="#release">Windows app</a>
         <a href="#community">Community</a>
@@ -47,8 +64,8 @@
       <div class="hero-shell page-width">
         <div class="hero-copy">
           <p class="hero-kicker">A little sailboat for your words</p>
-          <h1>Let your words land <em>where you need them.</em></h1>
-          <p class="hero-description">Prepare your text. Choose an open window. Floater Typist sends it one character at a time, at the pace you set.</p>
+          <h1>A free Windows auto typer <em>for text you prepare.</em></h1>
+          <p class="hero-description">Floater Typist types prepared text one character at a time into the open Windows window you choose. Set a pace, focus a text field, and stop whenever you like.</p>
           <div class="hero-actions">
             <a class="button button-primary" data-track="download-hero" href="downloads/Floater-Typist-Windows-v1.0.2.zip">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v4h14v-4"/></svg>
@@ -227,6 +244,21 @@
       </div>
     </section>
 
+    <section class="guide-faq-section section-pad" id="faq">
+      <div class="guide-faq-shell page-width">
+        <p class="section-kicker">Quick answers</p>
+        <h2>Common questions about <em>Windows text typing.</em></h2>
+        <div class="guide-faq-list">
+          <details><summary>What does Floater Typist do?</summary><p>It types text you prepare into a text field in an open Windows app. You choose the destination window and typing pace.</p></details>
+          <details><summary>Can I use it with any Windows app?</summary><p>It works with apps that accept standard keyboard text input. Open the destination app, choose its window in Floater Typist, and click the intended text field before typing begins. Some apps may block simulated keyboard input.</p></details>
+          <details><summary>How do I stop typing?</summary><p>Press Stop, close the destination window, or move focus to another app. The typing pace and countdown help you get ready before text starts.</p></details>
+          <details><summary>Does Floater Typist monitor or save my clipboard?</summary><p>No. It does not monitor the clipboard. Text enters History only when you choose Add clipboard, and session text clears when the app closes.</p></details>
+          <details><summary>Is Floater Typist free?</summary><p>Yes. Version 1.0.2 is free to download. The current Windows files are unsigned, so Windows or a browser may show a reputation warning. Review the release notes and SHA-256 checksum on the download page.</p></details>
+        </div>
+        <a class="inline-link" href="/guide/">Read the full Windows typing guide <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
     <section class="community-section section-pad" id="community">
       <div class="community-shell page-width">
         <div class="community-copy">
@@ -259,7 +291,7 @@
     <div class="footer-inner page-width">
       <a class="footer-brand" href="#top" aria-label="Floater Typist home"><img src="assets/Float-logo.svg" alt="" width="182" height="46"></a>
       <p>Take a breath. Let the words flow.</p>
-      <nav class="footer-links" aria-label="Community and social links"><a href="announcements/">Updates</a><a href="https://github.com/matthiasgoddey-rgb/float-release-site/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a><a href="https://x.com/FloatKeyTapper" target="_blank" rel="noopener noreferrer">X</a></nav>
+      <nav class="footer-links" aria-label="Site and community links"><a href="/guide/">Typing guide</a><a href="#faq">FAQs</a><a href="announcements/">Updates</a><a data-admin-only-link hidden href="/admin/">Admin console</a><a href="https://github.com/matthiasgoddey-rgb/float-release-site/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a><a href="https://x.com/FloatKeyTapper" target="_blank" rel="noopener noreferrer">X</a></nav>
       <div class="footer-meta"><span>Floater Typist</span><span>Made with care by SMARTSERVE</span><span>© <span data-current-year>2026</span></span></div>
     </div>
   </footer>

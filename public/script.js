@@ -275,3 +275,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const adminLink = document.querySelector("[data-admin-only-link]");
+  if (!adminLink) return;
+  try {
+    if (localStorage.getItem("floaterTypistAdminAccess") !== "1") return;
+  } catch { return; }
+  fetch("/api/admin/session", { credentials: "same-origin", cache: "no-store", headers: { Accept: "application/json" } })
+    .then((response) => response.ok ? response.json() : null)
+    .then((result) => {
+      if (result && result.isAdmin === true) adminLink.hidden = false;
+      else localStorage.removeItem("floaterTypistAdminAccess");
+    })
+    .catch(() => { try { localStorage.removeItem("floaterTypistAdminAccess"); } catch {} });
+});
