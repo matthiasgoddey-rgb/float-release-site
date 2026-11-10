@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Floater Typist</title>
+  <defs>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2869dc"/>
+      <stop offset="1" stop-color="#24a9a7"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="18" fill="url(#water)"/>
+  <path d="M38 14c-8 0-13 5-13 13v3h-8v7h8v14h8V37h10v-7H33v-3c0-4 2-6 5-6h5v-7h-5Z" fill="#fff"/>
+  <path d="M15 50c5-4 9 4 14 0s9 4 14 0 8 2 11 0" fill="none" stroke="#c8f2e8" stroke-linecap="round" stroke-width="2.2"/>
+</svg>
