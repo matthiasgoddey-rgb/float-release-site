@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#f4f9fc">
+  <title>Site desk — Floater Typist</title>
+  <link rel="icon" href="../assets/Float.ico" sizes="any">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+  <script src="admin.js" defer></script>
+</head>
+<body class="admin-body">
+  <header class="site-header admin-header"><div class="nav-shell"><a class="brand" href="../" aria-label="Floater Typist home"><img src="../assets/Float-logo.svg" alt="" width="194" height="50"></a><p>Private site desk</p><a href="../">View public site ↗</a></div></header>
+  <main class="admin-main page-width">
+    <section class="admin-intro"><p class="section-kicker">Private · Floater Typist</p><h1>The site desk.</h1><p>Aggregate activity, visitor reviews, and scheduled announcements. Sign-in and authenticator checks are handled by Cloudflare Access.</p><p class="admin-notice" data-admin-status role="status" aria-live="polite">Connecting to the protected admin service…</p></section>
+    <section class="admin-panel" aria-labelledby="metrics-title">
+      <div class="admin-section-heading"><div><p class="section-kicker">Signals</p><h2 id="metrics-title">Website activity</h2></div><div class="date-range"><label>From <input type="date" data-from></label><label>To <input type="date" data-to></label><button class="button button-primary" type="button" data-load-metrics>Update</button></div></div>
+      <p class="admin-help">Counts are daily totals. Download responses mean successful file or range responses; they do not identify unique people or confirm installation.</p>
+      <div class="admin-table-wrap"><table><thead><tr><th>Day</th><th>Type</th><th>Action</th><th>Count</th><th>Active seconds</th></tr></thead><tbody data-metrics-rows><tr><td colspan="5">Loading…</td></tr></tbody></table></div>
+    </section>
+    <section class="admin-panel" aria-labelledby="reviews-title">
+      <div class="admin-section-heading"><div><p class="section-kicker">Community</p><h2 id="reviews-title">Review moderation</h2></div><label class="filter-label">Show <select data-review-status><option value="pending">Pending</option><option value="approved">Published</option><option value="hidden">Hidden</option></select></label></div>
+      <div class="admin-card-list" data-admin-reviews><p>Loading reviews…</p></div>
+    </section>
+    <section class="admin-panel" aria-labelledby="announcement-title">
+      <div class="admin-section-heading"><div><p class="section-kicker">Front page and updates</p><h2 id="announcement-title">Announcements</h2></div><button class="button button-text" type="button" data-new-announcement>＋ New announcement</button></div>
+      <p class="admin-help">Keep copy plain and useful. Sponsored items receive a clear label; quotes require a source and permission note.</p>
+      <div class="admin-card-list announcement-admin-list" data-admin-announcements><p>Loading announcements…</p></div>
+      <form class="announcement-editor" data-announcement-form>
+        <input type="hidden" name="id">
+        <div class="admin-form-grid">
+          <label>Type<select name="kind"><option value="announcement">Announcement</option><option value="release">Release note</option><option value="sponsored">Sponsored</option></select></label>
+          <label>Status<select name="status"><option value="draft">Draft</option><option value="live">Live</option><option value="archived">Archived</option></select></label>
+          <label>Placement<select name="placement"><option value="banner">Front-page banner</option><option value="page">Updates page</option><option value="both">Banner and updates page</option></select></label>
+          <label>Priority <small>(higher appears first)</small><input name="priority" type="number" min="-100" max="100" value="0"></label>
+          <label class="wide">Eyebrow / disclosure <input name="eyebrow" maxlength="80" placeholder="Release 1.0.3 · or · Sponsored"></label>
+          <label class="wide">Headline <input name="title" maxlength="120" required></label>
+          <label class="wide">Message <textarea name="body" rows="4" maxlength="2000" required></textarea></label>
+          <label class="wide">Quoted text <textarea name="quoteText" rows="2" maxlength="600"></textarea></label>
+          <label>Quote attribution <input name="quoteAttribution" maxlength="120"></label>
+          <label>Quote source (URL or citation) <input name="quoteSource" maxlength="500"></label>
+          <label class="wide">Permission / rights note <input name="quotePermission" maxlength="240" placeholder="Permission received, or public-domain source"></label>
+          <label>Button text <input name="ctaLabel" maxlength="60"></label>
+          <label>Button destination (HTTPS) <input name="ctaUrl" type="url" maxlength="500"></label>
+          <label>Starts at <input name="startsAt" type="datetime-local" required></label>
+          <label>Ends at <input name="endsAt" type="datetime-local"></label>
+        </div>
+        <div class="admin-form-actions"><button class="button button-primary" type="submit">Save announcement</button><button class="button button-text" type="reset">Clear form</button><p data-announcement-status role="status" aria-live="polite"></p></div>
+      </form>
+    </section>
+    <p class="admin-footnote">Keep your authenticator app and its recovery codes in your own password manager. This admin dashboard never asks to store them.</p>
+  </main>
+</body>
+</html>
+
