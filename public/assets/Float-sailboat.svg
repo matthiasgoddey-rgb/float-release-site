@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="132" height="132" viewBox="0 0 132 132" role="img" aria-labelledby="title description">
+  <title id="title">Floater Typist sailboat</title>
+  <desc id="description">The Floater Typist sailboat on two calm waves.</desc>
+  <defs>
+    <linearGradient id="ice" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e1f3f7"/>
+      <stop offset="1" stop-color="#c4e4eb"/>
+    </linearGradient>
+  </defs>
+  <circle cx="66" cy="66" r="52" fill="url(#ice)"/>
+  <path d="M66 27v33" fill="none" stroke="#357592" stroke-linecap="round" stroke-width="2.6"/>
+  <path d="M62 31 48 52h14z" fill="#fff"/>
+  <path d="M70 34 86 52H70z" fill="#f2fcfd"/>
+  <path d="m44 56 44 0-10 10H54z" fill="#36859e"/>
+  <path d="M25 79c11-8 19 8 31 0s20 8 34 0" fill="none" stroke="#3285a1" stroke-linecap="round" stroke-width="3"/>
+  <path d="M35 91c9-5 16 5 25 0s17 5 27 0" fill="none" stroke="#70b8c7" stroke-linecap="round" stroke-width="2"/>
+</svg>

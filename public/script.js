@@ -5,15 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const navigation = document.querySelector("#site-navigation");
   if (menuToggle && navigation) {
+    const menuLabel = menuToggle.querySelector(".sr-only");
     const closeMenu = () => {
       menuToggle.setAttribute("aria-expanded", "false");
       navigation.classList.remove("is-open");
+      if (menuLabel) menuLabel.textContent = "Open navigation";
     };
 
     menuToggle.addEventListener("click", () => {
       const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
       menuToggle.setAttribute("aria-expanded", String(!isOpen));
       navigation.classList.toggle("is-open", !isOpen);
+      if (menuLabel) menuLabel.textContent = isOpen ? "Open navigation" : "Close navigation";
     });
 
     navigation.addEventListener("click", (event) => {
@@ -25,46 +28,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const demoText = document.querySelector("[data-demo-text]");
-  const demoCount = document.querySelector("[data-demo-count]");
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!demoText || !demoCount || prefersReducedMotion) {
-    if (demoText && demoCount) demoCount.textContent = demoText.textContent.length + " characters";
-    return;
+  const count = document.querySelector("[data-preview-count]");
+  const previewText = document.querySelector(".app-editor");
+  if (count && previewText) {
+    const value = previewText.textContent.trim();
+    const words = value.match(/\S+/g) || [];
+    count.textContent = `${value.length} characters, ${words.length} words`;
   }
 
-  const demoLines = [
-    "Thanks for the quick update. I’ll take a look this afternoon and get back to you.",
-    "The notes are ready. I’ll send them over after the meeting.",
-    "That works for me. Let’s check in again next week."
-  ];
-  let lineIndex = 0;
-  let characterIndex = demoLines[0].length;
+  const stepButtons = Array.from(document.querySelectorAll("[data-demo-step]"));
+  const visual = document.querySelector(".workflow-visual");
+  const taskOutput = document.querySelector("[data-task-output]");
+  const status = document.querySelector("[data-workflow-status]");
+  const taskText = "Book a dentist appointment for next Tuesday.";
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let typingTimer = 0;
 
-  const typeNextLine = () => {
-    const next = demoLines[lineIndex];
-    if (characterIndex < next.length) {
-      characterIndex += 1;
-      demoText.textContent = next.slice(0, characterIndex);
-      demoCount.textContent = characterIndex + " characters";
-      window.setTimeout(typeNextLine, 28);
+  const setStep = (step) => {
+    window.clearInterval(typingTimer);
+    if (visual) visual.dataset.flowStage = String(step);
+    stepButtons.forEach((button, index) => {
+      const active = index === step;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+
+    if (!taskOutput || !status) return;
+
+    if (step < 2) {
+      taskOutput.textContent = step === 0 ? "Your task will appear here" : "Ready for your text";
+      status.textContent = step === 0
+        ? "Destination selected: To Do — My Day. Next, prepare your text."
+        : "Text is ready, the pace is set, and a countdown gives you time to click in.";
       return;
     }
 
-    window.setTimeout(() => {
-      lineIndex = (lineIndex + 1) % demoLines.length;
-      characterIndex = 0;
-      demoText.textContent = "";
-      demoCount.textContent = "0 characters";
-      window.setTimeout(typeNextLine, 420);
-    }, 2400);
+    status.textContent = "Typing is in progress. Click away or press Stop to cancel.";
+    if (reducedMotion) {
+      taskOutput.textContent = taskText;
+      status.textContent = "Done.";
+      return;
+    }
+
+    taskOutput.textContent = "";
+    let index = 0;
+    typingTimer = window.setInterval(() => {
+      index += 1;
+      taskOutput.textContent = taskText.slice(0, index);
+      if (index >= taskText.length) {
+        window.clearInterval(typingTimer);
+        status.textContent = "Done.";
+      }
+    }, 34);
   };
 
-  window.setTimeout(() => {
-    lineIndex = 1;
-    characterIndex = 0;
-    demoText.textContent = "";
-    demoCount.textContent = "0 characters";
-    typeNextLine();
-  }, 3200);
+  stepButtons.forEach((button) => {
+    button.addEventListener("click", () => setStep(Number(button.dataset.demoStep)));
+  });
 });
