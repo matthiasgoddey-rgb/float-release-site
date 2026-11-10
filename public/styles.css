@@ -350,3 +350,53 @@ button, a { -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: auto; }
   *,*::before,*::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+.announcement-banner { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 22px; padding: 23px 27px; border: 1px solid #ccdee5; background: #fff; box-shadow: 0 10px 30px #23475a0a; }
+.announcement-banner[hidden] { display: none; }
+.announcement-copy .section-kicker { margin-bottom: 7px; }
+.announcement-copy h2 { margin: 0; font: 500 27px/1.15 var(--display); letter-spacing: -.035em; }
+.announcement-copy>p:last-of-type { max-width: 720px; margin: 7px 0 0; color: #5e788b; font-size: 13px; }
+.announcement-copy blockquote { margin: 12px 0 0; color: var(--ink); font: italic 17px/1.45 var(--display); }
+.announcement-source { margin: 4px 0 0; color: var(--muted); font-size: 10px; }
+.reviews-section { background: #eef6f8; }
+.reviews-shell { display: grid; grid-template-columns: minmax(220px, .72fr) minmax(0, 1.28fr); gap: clamp(32px, 7vw, 92px); align-items: start; }
+.reviews-intro h2 { margin: 0; font: 500 clamp(42px, 5vw, 63px)/1.03 var(--display); letter-spacing: -.06em; }
+.reviews-intro h2 em { color: var(--accent-dark); font-weight: 500; }
+.reviews-intro>p:not(.section-kicker) { max-width: 420px; margin: 18px 0 0; color: #607a8b; font-size: 13px; }
+.reviews-content { min-width: 0; }
+.review-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+.review-card,.review-empty { margin: 0; padding: 21px; border: 1px solid var(--line); background: #fff; }
+.review-empty { grid-column: 1 / -1; color: var(--muted); font-size: 13px; }
+.review-stars { margin: 0; color: #bd8746; font-size: 15px; letter-spacing: .12em; }
+.review-card blockquote { margin: 12px 0; color: #435d70; font: 17px/1.55 var(--display); }
+.review-byline { margin: 0; color: var(--muted); font-size: 10px; }
+.review-form,.review-delete-form { display: grid; gap: 12px; margin-top: 20px; padding: 20px; border: 1px solid var(--line); background: #fff; }
+.review-form[hidden],.review-delete-form[hidden] { display: none; }
+.review-form h3,.review-delete-form h3 { margin: 0; font: 500 25px/1.2 var(--display); }
+.review-form label,.review-delete-form label { display: grid; gap: 5px; color: #486477; font-size: 11px; font-weight: 700; }
+.review-form label span { display: inline; color: var(--muted); font-weight: 400; }
+.review-form input,.review-form select,.review-form textarea,.review-delete-form input { width: 100%; min-height: 40px; padding: 9px 11px; border: 1px solid #c9dbe3; color: var(--ink); background: #fff; font: 13px/1.5 var(--body); }
+.review-form textarea { resize: vertical; }
+.review-form .review-consent { display: flex; align-items: flex-start; gap: 8px; font-weight: 500; }
+.review-form .review-consent input { width: 16px; min-height: 16px; margin: 2px 0 0; }
+.review-trap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.turnstile-slot { min-height: 66px; }
+.form-status { margin: 0; color: #466679; font-size: 12px; overflow-wrap: anywhere; }
+.updates-page { min-height: 66vh; padding-top: clamp(56px, 8vw, 105px); padding-bottom: 80px; }
+.updates-page h1 { max-width: 760px; margin: 0; font: 500 clamp(44px, 7vw, 82px)/1.02 var(--display); letter-spacing: -.065em; }
+.updates-lede { max-width: 570px; margin: 18px 0 38px; color: #607a8b; font-size: 16px; }
+.updates-list { display: grid; gap: 15px; }
+.updates-empty,.update-card { margin: 0; padding: clamp(20px, 4vw, 34px); border: 1px solid var(--line); background: #fff; }
+.update-card .section-kicker { margin-bottom: 9px; }
+.update-card h2 { margin: 0; font: 500 clamp(26px, 4vw, 38px)/1.15 var(--display); letter-spacing: -.04em; }
+.update-card time { display: block; margin: 8px 0 14px; color: var(--muted); font-size: 10px; }
+.update-card>p:not(.section-kicker):not(.announcement-source) { max-width: 750px; margin: 0 0 13px; color: #526f82; }
+.update-card blockquote { margin: 17px 0 4px; color: var(--ink); font: italic 20px/1.5 var(--display); }
+.updates-back { margin-top: 25px; }
+
+@media (max-width: 760px) {
+  .announcement-banner { align-items: flex-start; flex-direction: column; margin-top: 13px; padding: 18px; }
+  .reviews-shell { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 520px) { .review-list { grid-template-columns: 1fr; } }
+

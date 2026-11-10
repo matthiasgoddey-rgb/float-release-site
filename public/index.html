@@ -35,12 +35,14 @@
         <a href="#privacy">Privacy</a>
         <a href="#release">Windows app</a>
         <a href="#community">Community</a>
+        <a href="announcements/">Updates</a>
       </nav>
-      <a class="nav-download" href="downloads/Floater-Typist-Windows-v1.0.2.zip">Download <span aria-hidden="true">↗</span></a>
+      <a class="nav-download" data-track="download-nav" href="downloads/Floater-Typist-Windows-v1.0.2.zip">Download <span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
   <main id="main">
+    <section class="announcement-banner page-width" data-announcement-banner hidden aria-label="Latest announcement"></section>
     <section class="hero" id="top">
       <div class="hero-shell page-width">
         <div class="hero-copy">
@@ -48,7 +50,7 @@
           <h1>Let your words land <em>where you need them.</em></h1>
           <p class="hero-description">Prepare your text. Choose an open window. Floater Typist sends it one character at a time, at the pace you set.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="downloads/Floater-Typist-Windows-v1.0.2.zip">
+            <a class="button button-primary" data-track="download-hero" href="downloads/Floater-Typist-Windows-v1.0.2.zip">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v4h14v-4"/></svg>
               Download for Windows
             </a>
@@ -157,7 +159,7 @@
         <div class="privacy-copy">
           <p class="section-kicker">Your session, yours</p>
           <h2>Quiet by design.</h2>
-          <p>Text stays in memory while Floater Typist is open. The app does not monitor the clipboard, and it clears session text when you close it.</p>
+          <p>Text stays in memory while Floater Typist is open. The app does not monitor the clipboard, and it clears session text when you close it. This website separately counts daily page views, selected link clicks, successful package responses, and active time in aggregate. It does not use visitor accounts, cookies, or tracking IDs, and it never receives text from the app.</p>
         </div>
         <ul class="privacy-points"><li>No clipboard monitoring</li><li>History clears on close</li><li>No administrator access</li></ul>
       </div>
@@ -169,7 +171,7 @@
           <p class="section-kicker">Windows release · 1.0.2</p>
           <h2>A little room<br>for your words.</h2>
           <p>Download the current Floater Typist package. It includes the per-user installer, portable app, user guide, changelog, and checksums.</p>
-          <a class="button button-primary" href="downloads/Floater-Typist-Windows-v1.0.2.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v4h14v-4"/></svg>Download for Windows</a>
+          <a class="button button-primary" data-track="download-release" href="downloads/Floater-Typist-Windows-v1.0.2.zip"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 16v4h14v-4"/></svg>Download for Windows</a>
           <p class="release-meta">Floater-Typist-Windows-v1.0.2.zip <span>·</span> 51 KB <span>·</span> SHA-256 included</p>
         </div>
         <div class="release-details">
@@ -185,7 +187,43 @@
       </div>
       <div class="compatibility page-width">
         <p><strong>For Windows</strong><span>32-bit and 64-bit · Windows PowerShell and .NET Framework 4.x</span></p>
-        <p><strong>Unsigned release</strong><span>Windows may show a reputation warning after download.</span></p>
+        <p><strong>Unsigned release</strong><span>The Windows app and installer are not code-signed. Chrome or Windows may warn about an unfamiliar file or publisher. The SHA-256 checks the archive for changes; it does not verify the publisher or certify safety. <a href="https://support.google.com/chrome/answer/6261569" target="_blank" rel="noopener noreferrer">Why Chrome warns ↗</a></span></p>
+      </div>
+    </section>
+
+    <section class="reviews-section section-pad" id="reviews">
+      <div class="reviews-shell page-width">
+        <div class="reviews-intro">
+          <p class="section-kicker">Notes from people who use it</p>
+          <h2>Small tool.<br><em>Real workflows.</em></h2>
+          <p>Reviews are optional. Submissions stay private until approved. You can remove a review later with the one-time receipt shown after submission.</p>
+          <a class="inline-link" href="announcements/">Read project updates <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="reviews-content">
+          <div class="review-list" data-review-list aria-live="polite"><p class="review-empty">Reviews will appear here when people choose to share them.</p></div>
+          <form class="review-form" data-review-form hidden>
+            <h3>Share a review</h3>
+            <label>Rating
+              <select name="rating" required>
+                <option value="">Choose a rating</option><option value="5">5 — Loved it</option><option value="4">4 — Helpful</option><option value="3">3 — Good</option><option value="2">2 — Could improve</option><option value="1">1 — Not for me</option>
+              </select>
+            </label>
+            <label>Name to show <span>(optional)</span><input name="displayName" maxlength="40" autocomplete="nickname" placeholder="Floater Typist user"></label>
+            <label>Your review<textarea name="reviewText" rows="4" maxlength="1200" required></textarea></label>
+            <label class="review-consent"><input type="checkbox" name="publishConsent" required> I agree that this review may be published if approved.</label>
+            <label class="review-trap" aria-hidden="true">Company<input name="company" tabindex="-1" autocomplete="off"></label>
+            <div class="turnstile-slot" data-turnstile-widget></div>
+            <button class="button button-primary" type="submit">Send for review</button>
+            <p class="form-status" data-review-status role="status" aria-live="polite"></p>
+          </form>
+          <form class="review-delete-form" data-review-delete-form hidden>
+            <h3>Remove a review</h3>
+            <label>Review receipt ID<input name="id" required autocomplete="off"></label>
+            <label>One-time removal code<input name="token" required autocomplete="off"></label>
+            <button class="button button-text" type="submit">Remove my review</button>
+            <p class="form-status" data-delete-status role="status" aria-live="polite"></p>
+          </form>
+        </div>
       </div>
     </section>
 
@@ -197,8 +235,8 @@
           <p>Share a workflow, ask a question, or suggest an improvement. Follow @FloatKeyTapper for project updates.</p>
         </div>
         <div class="community-links">
-          <a href="https://github.com/matthiasgoddey-rgb/float-release-site/discussions" target="_blank" rel="noopener noreferrer"><span><strong>GitHub Discussions</strong><small>Questions, ideas, and workflows</small></span><span aria-hidden="true">↗</span></a>
-          <a href="https://x.com/FloatKeyTapper" target="_blank" rel="noopener noreferrer"><span><strong>Follow on X</strong><small>@FloatKeyTapper · Release news</small></span><span aria-hidden="true">↗</span></a>
+          <a data-track="community-github" href="https://github.com/matthiasgoddey-rgb/float-release-site/discussions" target="_blank" rel="noopener noreferrer"><span><strong>GitHub Discussions</strong><small>Questions, ideas, and workflows</small></span><span aria-hidden="true">↗</span></a>
+          <a data-track="community-x" href="https://x.com/FloatKeyTapper" target="_blank" rel="noopener noreferrer"><span><strong>Follow on X</strong><small>@FloatKeyTapper · Release news</small></span><span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -209,7 +247,7 @@
           <p class="section-kicker">Optional, one-time support</p>
           <h2>Help keep it afloat.</h2>
           <p>Floater Typist is free to download. If it has made typing easier, you can make a voluntary contribution to help SMARTSERVE maintain and improve it.</p>
-          <a class="button button-support" href="https://paystack.shop/pay/epmvv28vrr" target="_blank" rel="noopener noreferrer">Support the project <span aria-hidden="true">↗</span></a>
+          <a class="button button-support" data-track="support-one-time" href="https://paystack.shop/pay/epmvv28vrr" target="_blank" rel="noopener noreferrer">Support the project <span aria-hidden="true">↗</span></a>
           <span class="support-meta">Choose any amount · One-time payment</span>
         </div>
         <p class="support-note"><strong>No subscription.</strong><br>The app stays free.</p>
@@ -221,9 +259,10 @@
     <div class="footer-inner page-width">
       <a class="footer-brand" href="#top" aria-label="Floater Typist home"><img src="assets/Float-logo.svg" alt="" width="182" height="46"></a>
       <p>Take a breath. Let the words flow.</p>
-      <nav class="footer-links" aria-label="Community and social links"><a href="https://github.com/matthiasgoddey-rgb/float-release-site/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a><a href="https://x.com/FloatKeyTapper" target="_blank" rel="noopener noreferrer">X</a></nav>
+      <nav class="footer-links" aria-label="Community and social links"><a href="announcements/">Updates</a><a href="https://github.com/matthiasgoddey-rgb/float-release-site/discussions" target="_blank" rel="noopener noreferrer">GitHub Discussions</a><a href="https://x.com/FloatKeyTapper" target="_blank" rel="noopener noreferrer">X</a></nav>
       <div class="footer-meta"><span>Floater Typist</span><span>Made with care by SMARTSERVE</span><span>© <span data-current-year>2026</span></span></div>
     </div>
   </footer>
 </body>
 </html>
+
